@@ -5,3 +5,5 @@ class RecipeModel(models.Model):
     ingredients = models.TextField()
     process = models.TextField()
     category = models.CharField(max_length=20)
+    def __str__(self):
+        return self.name
