@@ -1,5 +1,6 @@
-from django.urls import path, include
+from django.urls import path
+from .views import ListView
 
 urlpatterns = [
-    path('', )
+    path('list/', ListView.as_view())
 ]
