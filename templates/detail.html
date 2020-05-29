@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{ object.name }}</h1>
+
+    <p>材料：{{ object.ingredients }}</p>
+
+    <p>工程：{{ object.process }}</p>
+
+    <p>カテゴリー：{{ object.category }}</p>
+
+</div>
+{% endblock %}

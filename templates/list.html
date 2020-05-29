@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="{% url 'create' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">新規作成</a>
+
 {% for item in object_list %}
-{{ item.name }}
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">{{ item.process }}</p>
+    <a href="{% url 'detail' item.pk %}" class="btn btn-primary">レシピを見る</a>
+  </div>
+</div>
 
 {% endfor %}
 {% endblock content %}
