@@ -1,18 +1,35 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<style>
+ h1 {
+   margin-top: 30px;
+ }
+
+ p {
+   margin-bottom: 30px;
+ }
+</style>
+{% endblock header %}
+
 {% block content %}
-<a href="{% url 'create' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">新規作成</a>
 
+<h1>レシピ投稿サイト</h1>
+<p>みんなでレシピを投稿、シェアしよう！</p>
+<hr>
 {% for item in object_list %}
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ item.name }}</h5>
-    <p class="card-text">{{ item.process }}</p>
-    <a href="{% url 'detail' item.pk %}" class="btn btn-primary">レシピを見る</a>
+<div class="container">
+  <div class="card" style="width: 50rem; height: 200px;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text">{{ item.process }}</p>
+      <a href="{% url 'detail' item.pk %}" class="btn btn-warning">レシピを見る</a>
+      <a href="{% url 'delete' item.pk %}" class="btn btn-danger">レシピを削除</a>
+    </div>
   </div>
 </div>
+<hr>
 
 {% endfor %}
 {% endblock content %}

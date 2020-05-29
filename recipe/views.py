@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import RecipeModel
 from django.urls import reverse_lazy
 
@@ -18,3 +18,9 @@ class RecipeCreate(CreateView):
     model = RecipeModel
     fields = ('name','ingredients','process','category')
     success_url = reverse_lazy('list')
+
+class RecipeDelete(DeleteView):
+    template_name = 'delete.html'
+    model = RecipeModel
+    success_url = reverse_lazy('list')
+
